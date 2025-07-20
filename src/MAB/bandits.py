@@ -60,7 +60,7 @@ class GaussianBanditGame:
         if self.n_played > 0:
             print(f"Total reward is {self.total_reward} after {self.n_played} round(s)")
             avg_reward = self.total_reward / self.n_played
-            print("Average reward is {avg_rew}")
+            print("Average reward is {avg_reward}")
 
     def reset_game(self):
         """Delete all cached values for a new game."""

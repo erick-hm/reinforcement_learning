@@ -27,6 +27,8 @@ class BernoulliBandit:
         if p < 0 or p > 1:
             msg = "Probability p must be in the range [0,1]."
             raise ValueError(msg)
+        
+        self.p = p
 
     def pull_lever(self):
         reward = np.random.binomial(n=1, p=self.p)

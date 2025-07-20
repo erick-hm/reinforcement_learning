@@ -17,10 +17,26 @@ class GaussianBandit:
         return np.round(reward, 1)
 
 
+class BernoulliBandit:
+    """
+    A Bernoulli Bandit used to play a bandit game, which returns a
+    random reward sampled from the Bernoulli distribution Bernoulli(p).
+    """
+
+    def __init__(self, p: float):
+        if p < 0 or p > 1:
+            msg = "Probability p must be in the range [0,1]."
+            raise ValueError(msg)
+
+    def pull_lever(self):
+        reward = np.random.binomial(n=1, p=self.p)
+        return reward
+
+
 class GaussianBanditGame:
     """
     The Gaussian Bandit game which uses multiple Guassian Bandits and user inputs
-    to simulate the pulling of levers. The bandits are shuffled initially 
+    to simulate the pulling of levers. The bandits are shuffled initially
     so that the user is not able to determine which bandit provides the highest rewards.
     """
 

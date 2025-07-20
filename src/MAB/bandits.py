@@ -20,8 +20,8 @@ class GaussianBandit:
 class GaussianBanditGame:
     """
     The Gaussian Bandit game which uses multiple Guassian Bandits and user inputs
-    to simulate the pulling of levers. The bandits are shuffled so that the user is
-    not able to ascertain which bandit provides the highest rewards.
+    to simulate the pulling of levers. The bandits are shuffled initially 
+    so that the user is not able to determine which bandit provides the highest rewards.
     """
 
     def __init__(self, bandits):

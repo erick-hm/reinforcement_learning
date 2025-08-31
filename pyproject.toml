@@ -5,7 +5,9 @@ description = "Implementing RL algorithms"
 authors = ["Erick Hinds Mingo <erickhindsmingo@gmail.com>"]
 readme = "README.md"
 packages = [
-    { include = "MAB", from = "src" }
+    { include = "MAB", from = "src" },
+    { include = "case_studies", from = "src" },
+    { include = "models", from = "src"}
 ]
 
 [tool.poetry.dependencies]

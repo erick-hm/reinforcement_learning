@@ -92,3 +92,19 @@ class RegularisedLogisticRegression:
             self.m = self.w
             p = (1 + np.exp(-np.matmul(self.w, X.T))) ** (-1)
             self.q = self.q + np.matmul(p + (1 - p), X**2)
+
+    def calc_sigmoid(self, w, context):
+        return 1 / (1 + np.exp(-np.dot(w, context)))
+
+    def get_ucb(self, context):
+        pred = self.calc_sigmoid(self.m, context)
+        confidence = self.alpha * np.sqrt(np.sum((np.array(context) ** 2) / self.q))
+        ucb = pred + confidence
+        return ucb
+
+    def get_prediction(self, context):
+        return self.calc_sigmoid(context)
+
+    def sample_prediction(self, context):
+        w = self.get_sampled_weights()
+        return self.calc_sigmoid(w, context)
